@@ -6,15 +6,15 @@ win = pygame.display.set_mode((750, 500))
 
 pygame.display.set_caption('Pong')
 
-white = (255, 255, 255)
-black = (0, 0, 0)
+dark_grey = (134, 146, 137)
+light_grey = (214, 214, 214)
 
 
 class Paddle1(pygame.sprite.Sprite):
     def __init__(self):
         pygame.sprite.Sprite.__init__(self)
         self.image = pygame.Surface([10, 75])
-        self.image.fill(white)
+        self.image.fill(dark_grey)
         self.rect = self.image.get_rect()
         self.points = 0
 
@@ -23,7 +23,7 @@ class Paddle2(pygame.sprite.Sprite):
     def __init__(self):
         pygame.sprite.Sprite.__init__(self)
         self.image = pygame.Surface([10, 75])
-        self.image.fill(white)
+        self.image.fill(dark_grey)
         self.rect = self.image.get_rect()
         self.points = 0
 
@@ -32,7 +32,7 @@ class Ball(pygame.sprite.Sprite):
     def __init__(self):
         pygame.sprite.Sprite.__init__(self)
         self.image = pygame.Surface([10, 10])
-        self.image.fill(white)
+        self.image.fill(dark_grey)
         self.rect = self.image.get_rect()
         self.speed = 6
         self.dx = 2
@@ -57,20 +57,20 @@ all_sprites.add(paddle1, paddle2, pong)
 
 
 def redraw():
-    win.fill(black)
+    win.fill(light_grey)
 
     font = pygame.font.SysFont('Comic Sans MS', 30)
-    text = font.render('PONG', False, white)
+    text = font.render('PONG', False, dark_grey)
     textRect = text.get_rect()
     textRect.center = (750 // 2, 25)
     win.blit(text, textRect)
 
-    p1_score = font.render(str(paddle1.points), False, white)
+    p1_score = font.render(str(paddle1.points), False, dark_grey)
     p1Rect = p1_score.get_rect()
     p1Rect.center = (50, 50)
     win.blit(p1_score, p1Rect)
 
-    p2_score = font.render(str(paddle2.points), False, white)
+    p2_score = font.render(str(paddle2.points), False, dark_grey)
     p2Rect = p2_score.get_rect()
     p2Rect.center = (700, 50)
     win.blit(p2_score, p2Rect)
