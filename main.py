@@ -59,7 +59,7 @@ all_sprites.add(paddle1, paddle2, pong)
 def redraw():
     win.fill(light_grey)
 
-    font = pygame.font.SysFont('Comic Sans MS', 30)
+    font = pygame.font.SysFont('Arial Narrow', 30)
     text = font.render('PONG', False, dark_grey)
     textRect = text.get_rect()
     textRect.center = (750 // 2, 25)
